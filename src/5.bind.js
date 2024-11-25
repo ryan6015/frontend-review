@@ -2,11 +2,11 @@
  * 模拟bind函数实现
  *
  * 首先想想bind函数内部做了啥，
- * 1. 绑定死函数的this指向，返回一个新的函数
+ * 1. 返回一个新的函数，绑定函数的this指向
  * 2. 同时接收不定量的参数，这些参数会在函数运行前放在前面传给函数
  * 3. 要注意的是：直接new的方式调用bind函数，那么this指向的是新创建的对象，
  *    而不是context
- * 4. 如果context为空，指向window
+ * 4. 如果context为空，指向全局变量
  *
  * @param {function} fn 执行函数
  * @param {object} context 执行函数的上下文
@@ -19,7 +19,7 @@ function _bind(fn, context, ...args) {
 
   const boundFunction = function (...argLists) {
     let ctx = context ? Object(context) : global;
-    // 这里判断this是否是func的实例，如果是，那么就返回this，
+    // 这里判断this是否是func的实例(是否使用new)，如果是，那么就返回this，
     if (this instanceof boundFunction) {
       return new fn(args.concat(argLists));
     } else {
@@ -28,6 +28,7 @@ function _bind(fn, context, ...args) {
     }
   };
 
+  // 将函数的原型指向fn的原型，这样在使用new时，也可以继承fn的原型
   boundFunction.prototype = Object.create(fn.prototype);
   boundFunction.prototype.constructor = boundFunction;
 

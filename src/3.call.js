@@ -14,8 +14,10 @@ function _call(fn, context, ...args) {
   }
   // 如果context为null，那么就指向window
   // 这里jest运行在node环境上，所以没有window，用global代替
+  // 如果context是一个基本类型，那么就把它转换成对象类型
   const ctx = context ? Object(context) : global;
-  // 把函数放到对象中, 这里会有重名的风险，简单写下，明白原理就好
+  // 把函数放到对象中, 这里会有重名的风险，简单写下，重要的是是原理
+  // 所以忽略这个问题，在实际开发中，不要这样做
   ctx._fn = fn;
   // 执行函数
   const result = ctx._fn(...args);
