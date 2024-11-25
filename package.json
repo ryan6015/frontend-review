@@ -6,9 +6,16 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "FrontendReview",
+    "review"
+  ],
+  "author": "shujin-ryan",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryan6015/frontend-review.git"
+  },
   "devDependencies": {
     "jest": "^29.7.0"
   }
