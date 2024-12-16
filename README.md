@@ -7,4 +7,4 @@
 6. [模拟实现深拷贝](./src/6.clone.js)
 7. [实现防抖函数](./src/7.debounce.js)
 8. [实现节流函数](./src/8.throttle.js)
-9. 
+9. [Promise的各个静态方法](./src/9.promiseMethods.js)
