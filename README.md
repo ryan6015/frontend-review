@@ -8,3 +8,4 @@
 7. [实现防抖函数](./src/7.debounce.js)
 8. [实现节流函数](./src/8.throttle.js)
 9. [Promise的各个静态方法](./src/9.promiseMethods.js)
+10. [可以取消的自定义Promise](./src/10.CancelablePromise.ts)
